@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mentormate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fefeff 0%, #ffffff 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        h1, h3 {
+            color: rgb(8, 6, 6);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            max-width: 450px;
+            height: 500px;
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .flip-card-front {
+            background-color: rgba(7, 6, 6, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(19, 18, 18);
+        }
+        
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .flip-card-back {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgb(2, 2, 2);
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            border: solid 2px black;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .form-title {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: rgb(3, 3, 3);
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(14, 13, 13, 0.7);
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: rgb(14, 13, 13);
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus {
+            border-color: rgba(20, 14, 14, 0.5);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-group input::placeholder {
+            color: rgba(17, 16, 16, 0.5);
+        }
+        
+        .input-group label {
+            position: absolute;
+            left: 40px;
+            top: 12px;
+            color: rgba(10, 10, 10, 0.7);
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+         .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            transform: translateY(-25px);
+            font-size: 12px;
+            color: rgb(5, 5, 5);
+        } 
+        
+        .recover {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .recover a {
+            color: rgba(10, 8, 8, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .recover a:hover {
+            color: rgb(10, 10, 10);
+        }
+        
+        .btn {
+            width: 80%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid black;
+            border-radius: 10px;
+            color: rgb(8, 8, 8);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .btn a{
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+           
+            border: solid 1px black;
+        }
+        
+        .or {
+            position: relative;
+            color: rgba(0, 0, 0, 0.7);
+            margin: 20px 0;
+        }
+        
+        .or::before, .or::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .or::before {
+            left: 0;
+        }
+        
+        .or::after {
+            right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons i {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .social-icons i:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            border: solid 1px black;
+
+        }
+        
+        .signup-link {
+            color: rgba(2, 2, 2, 0.7);
+            font-size: 14px;
+        }
+        
+        .signup-link a {
+            color: rgb(12, 11, 11);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 480px) {
+            .flip-card {
+                height: 450px;
+            }
+            
+            .flip-card-back {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Find the Perfect <span class="highlight">Career for You</span></h1>
+    <p>A next-gen community for youth to connect, earn, and discover their passion.</p>
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="/images/A young Indian student with a backpack giving a thumbs up _ Premium AI-generated image.jpg" alt="Abstract background">
+        </div>
+        <div class="flip-card-back">
+            <h1 class="form-title">Sign In</h1>
+            <form method="post" action="">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                </div>
+                <p class="recover">
+                    <a href="#">Forgot Password?</a>
+                </p>
+                <button class="btn"><a href="home.html">Sign In</a></button>
+                
+                <p class="or">or continue with</p>
+                
+                <div class="social-icons">
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                
+                <p class="signup-link">Don't have an account? <a href="register.html">Register</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

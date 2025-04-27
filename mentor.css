@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: linear-gradient(120deg, #fdfbfb, #ebedee);
+    color: #bdb8b8;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    z-index: 1001; /* Ensure logo stays above mobile menu */
+  }
+  .logo a{
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #535557;
+  }
+  
+  .logout {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    background-color: #000000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+  
+  .logout:hover {
+    background-color: #333333;
+  }
+  
+  /* Tablet Styles */
+  @media (max-width: 992px) {
+    header {
+        padding: 15px 5%;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        padding-top: 80px;
+        z-index: 1000;
+    }
+    
+    nav.active {
+        left: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+    }
+    
+    .logout {
+  
+        top: 20px;
+        right: 5%;
+        z-index: 1001;
+    }
+  }
+  
+  /* Small Mobile Styles */
+  @media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+    
+    nav {
+        width: 80%;
+    }
+  }
+  /* Mentor section wrapper */
+.mentor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(to bottom, #f2f3f3, #ffffff);
+  }
+
+  .mentor-card {
+    background: linear-gradient(135deg, #fefefe, #f2f6f9);
+    border-radius: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    max-width: 320px;
+    margin: 1rem auto;
+
+  }
+  
+ 
+  .mentor-card:hover {
+    transform: scale(1.03) rotate(-0.5deg);
+    border: 1px solid black;
+  }
+  
+  .mentor-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    margin-bottom: 1rem;
+    transition: 0.3s ease;
+  }
+  
+  .mentor-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0.2rem 0;
+  }
+  
+  .mentor-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.6rem;
+  }
+  
+  .mentor-rating {
+    font-size: 1.2rem;
+    color: #fbc02d;
+    margin: 0.8rem 0;
+  }
+  
+  .mentor-card button {
+    display: inline-block;
+    background: #000000;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .mentor-card button:hover {
+    background: #434444;
+  }
+  
+  .mentor-social {
+    margin-top: 1rem;
+  }
+  
+  .mentor-social a {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #000000;
+    transition: color 0.3s ease;
+  }
+  
+  .mentor-social a:hover {
+    color: #535353;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 500px) {
+    .mentor-card {
+      padding: 1rem;
+    }
+  
+    .mentor-card h3 {
+      font-size: 1.25rem;
+    }
+  
+    .mentor-card p {
+      font-size: 0.95rem;
+    }
+  
+    .mentor-card button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
